@@ -1,11 +1,24 @@
 import math
+import standards
 
+description = """\
+Converts any number in range 1-1000 to a roman numeral.
 
-def int_to_roman():
-    num = int(input("Enter a digit between 1-1000: "))
+ex.
+  1) 1 -> I
+  2) 5 -> V
+  3) 
+
+"""
+input_prompt = "Enter a number (n) where 0 < n < 1001: "
+index_info = {
+    "title": "Integer to Roman Numeral",
+    "source": "https://youtu.be/9mFaPhwsAb4",
+    "date": "2021-01-29"
+}
+
+def int_to_roman(num):
     initial_num = num
-    while num < 1 or num > 1000:
-        num = int(input("Try again: "))
 
     conv_dict = {
         "I": 1,
@@ -33,5 +46,8 @@ def int_to_roman():
     print(f"The number {initial_num} in roman numerals is {end_numeral}")
 
 
-if __name__ == '__main__':
-    int_to_roman()
+response_class = standards.Problem(
+    description=description,
+    run_function=int_to_roman,
+    input_prompt=input_prompt
+)

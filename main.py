@@ -1,4 +1,6 @@
-from roman_numeral_converter import int_to_roman
+import practice_problems.square_every_digit
+import random
+
 
 if __name__ == "__main__":
-    int_to_roman()
+    practice_problems.square_every_digit.response_class.run()
