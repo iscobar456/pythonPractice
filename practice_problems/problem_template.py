@@ -14,7 +14,7 @@ index_info = {
     "title": "",
     "source": "",  # i.e. where I found this idea.
     "date": "",  # Format YYYY-MM-DD
-    "time_spent": 0  # In seconds
+    "time_spent": ""
 }
 
 
