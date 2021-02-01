@@ -34,7 +34,6 @@ input_prompt = "Number of diamonds to find on smallest piece of land: "
 # If necessary, replace the following variable with an input generator.
 def input_generator(size=(10, 10), dev=False):
     num_of_diamonds = int(input(input_prompt))
-    print(num_of_diamonds)
     if dev:
         dev_map = [
             [1, 5, 3, 7],
@@ -63,6 +62,10 @@ def main_function(func_input):
     diamond_map = func_input[0]
     target_diamond_amount = func_input[1]
     solutions = []
+
+    for row in diamond_map:
+        print(row)
+    print("is the diamond map")
 
     def map_transpose(input_map):
         input_map_transpose = [[] for column in range(len(input_map[0]))]
@@ -95,6 +98,7 @@ def main_function(func_input):
 
     # Column splitting
     viable_col_sections = split_map(diamond_map)
+
     def search_for_solutions(viable_sections, revert=False):
         smallest_solution_area = len(diamond_map) * len(diamond_map[0])
         smallest_possible_solution_area = math.floor(target_diamond_amount / 10)
@@ -184,6 +188,7 @@ def main_function(func_input):
 
         solution_coordinates = solutions_to_coordinates(clean_solutions)
         sorted_coordinates = sorted(solution_coordinates, key=lambda s: (s[0][0], s[0][1], s[1][0], s[1][1]))
+        print(sorted_coordinates)
         return sorted_coordinates
     else:
         return solutions
@@ -198,7 +203,7 @@ def main_function(func_input):
 # )
 
 if __name__ == "__main__":
-    i = input_generator(size=(50, 50))
+    i = input_generator(size=(30, 30))
     whole_time_reference = time.time()
     main_function(i)
     print("Total time:", time.time() - whole_time_reference)
